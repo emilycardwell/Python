@@ -1,0 +1,17 @@
+def multi_word_search(doc_list, keywords):
+
+    search_dict = {}
+    word_list = {}
+    
+    for i, title in enumerate(doc_list):
+        split_words = title.split()
+        stripped_words = [split_words.strip(".,?!").lower() for split_words in split_words]
+        word_list[i] = stripped_words
+        
+    for k, key in enumerate(keywords):
+        search_dict[key] = []
+        for w in word_list:
+            if key.lower() in word_list[w]:
+                search_dict[key].append(w)
+                
+    return search_dict
