@@ -1,0 +1,37 @@
+def standardDeviation():
+  
+    import math
+  
+    data_str = input("Enter a dataset:\n")
+    data_set = data_str.split(",")
+    clean_set = [float(d) for d in data_set]            
+
+    d = int(input("Enter the number of digits to round to: "))
+  
+    n = 0
+    total = 0
+    for f in clean_set:
+        total += f
+        n += 1
+    avg = total/n
+    print("The mean is: " + str(round(avg, d)))
+
+    top = 0
+    for x in clean_set:
+        top += (x - avg) ** 2
+
+    pop_or_samp = input("Enter 'samp' or 'pop' (whole population):\n")
+  
+    if pop_or_samp == "samp":
+        var = top/(n-1)
+        print("The sample variance is: " + str(round(var, d)))
+    elif pop_or_samp == "pop":
+        var = top/n
+        print("The population variance is: " + str(round(var, d)))
+    else:
+        print("That is not a valid input")
+
+    sd = math.sqrt(var)
+    print("The standard deviation is: " + str(round(sd, d)))
+
+standardDeviation()
