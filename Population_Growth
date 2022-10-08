@@ -1,0 +1,16 @@
+import math
+
+def nb_year(p0, percent, aug, p):
+    
+    # p = (p0 * (1 + (percent / 100)) ** y) + (y * aug)
+    
+    print(p0, percent, aug, p)
+    pn = p0
+    y = 0
+    
+    while pn < p:
+        pn = pn + math.floor(pn * (percent / 100)) + aug
+        y += 1
+        print(pn)
+    
+    return y
